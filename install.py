@@ -11,3 +11,4 @@ def install_file(name):
 
 install_file('gitconfig')
 install_file('bash_profile')
+install_file('bashrc')
