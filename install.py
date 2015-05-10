@@ -17,4 +17,5 @@ def install_file(name, dest_dir = os.path.expanduser('~'), dot = True):
 install_file('gitconfig')
 install_file('bash_profile')
 install_file('bashrc')
+install_file('emacs')
 install_file('ipython.py', os.path.expanduser('~/.ipython/profile_default/startup/'), False)
