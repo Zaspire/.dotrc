@@ -14,11 +14,11 @@ if [ -e /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-export GREP_OPTIONS='--color=auto'
-export HISTSIZE=9000
-
+GREP_OPTIONS='--color=auto'
+HISTSIZE=9000
+HISTCONTROL=ignoreboth
 # enable color support of ls
-export CLICOLOR=1
+CLICOLOR=1
 
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 PS1="\[\033[0;32m\]\W\$\[\033[m\]"
