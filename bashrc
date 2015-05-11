@@ -19,6 +19,8 @@ HISTSIZE=9000
 HISTCONTROL=ignoreboth
 # enable color support of ls
 CLICOLOR=1
+VISUAL=vim
+EDITOR="$VISUAL"
 
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 PS1="\[\033[0;32m\]\W\$\[\033[m\]"
