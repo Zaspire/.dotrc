@@ -10,6 +10,7 @@
 (setq auto-save-default nil)
 (setq indent-tabs-mode nil)
 (tool-bar-mode 0)
+(column-number-mode 1)
 (mouse-avoidance-mode 'animate)
 (setq-default truncate-lines t)
 
