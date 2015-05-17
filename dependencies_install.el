@@ -13,4 +13,5 @@
 (el-get-install 'auto-complete)
 (el-get-install 'ac-irony)
 (el-get-install 'editorconfig)
+(kill-emacs)
 
