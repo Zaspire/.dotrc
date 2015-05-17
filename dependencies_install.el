@@ -13,5 +13,8 @@
 (el-get-install 'auto-complete)
 (el-get-install 'ac-irony)
 (el-get-install 'editorconfig)
+(el-get-install 'highlight-symbol)
+(el-get-install 'cmake-mode)
+(el-get-install 'anything-exuberant-ctags)
 (kill-emacs)
 

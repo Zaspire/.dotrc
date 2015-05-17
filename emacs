@@ -22,6 +22,13 @@
 (setq-default show-trailing-whitespace t)
 (global-hl-line-mode 1)
 
+;remove scroll glitches
+(setq redisplay-dont-pause t
+      scroll-conservatively most-positive-fixnum
+      scroll-step 0)
+(cua-selection-mode t)
+(setq x-select-enable-clipboard t)
+(set-scroll-bar-mode 'right)
 (setq make-backup-files nil)
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -32,14 +39,23 @@
 (setq-default truncate-lines t)
 ;disable help screen
 (setq inhibit-splash-screen t)
+;maximize frame
+(set-frame-parameter nil 'fullscreen 'fullboth)
+(fset 'yes-or-no-p 'y-or-n-p)
 
-(add-hook 'c-mode-common-hook
-  (lambda()
-    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+(require 'uniquify)
+(setq
+  uniquify-buffer-name-style 'post-forward
+  uniquify-separator ":")
+
+(load "editorconfig")
 
 (require 'auto-complete-config)
 (ac-config-default)
 
+(add-hook 'c-mode-common-hook
+  (lambda()
+    (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'objc-mode-hook 'irony-mode)
@@ -56,4 +72,14 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-(load "editorconfig")
+(require 'cmake-mode)
+(setq auto-mode-alist
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode)
+		("\\.cmake\\'" . cmake-mode))
+	      auto-mode-alist))
+
+(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [kp-subtract] 'undo)
+(require 'anything-exuberant-ctags)
+(global-set-key (kbd "C-z") 'anything)
+(global-set-key (kbd "C-x C-z") 'anything)
