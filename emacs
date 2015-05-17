@@ -30,19 +30,28 @@
 (column-number-mode 1)
 (mouse-avoidance-mode 'animate)
 (setq-default truncate-lines t)
+;disable help screen
+(setq inhibit-splash-screen t)
 
 (add-hook 'c-mode-common-hook
   (lambda()
     (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
 
+(require 'auto-complete-config)
+(ac-config-default)
+
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)
 (add-hook 'objc-mode-hook 'irony-mode)
 (defun my-irony-mode-hook ()
+  (yas-minor-mode 1)
+  (auto-complete-mode 1)
   (define-key irony-mode-map [remap completion-at-point]
     'irony-completion-at-point-async)
   (define-key irony-mode-map [remap complete-symbol]
     'irony-completion-at-point-async)
-  (local-set-key (kbd "C-c ?") 'irony-completion-at-point-async))
+  (local-set-key (kbd "C-c ?") 'irony-completion-at-point-async)
+  (add-to-list 'ac-sources 'ac-source-irony)
+  (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)

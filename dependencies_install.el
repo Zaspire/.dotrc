@@ -10,4 +10,6 @@
 (el-get-install 'color-theme)
 (el-get-install 'rainbow-delimiters)
 (el-get-install 'yasnippet)
+(el-get-install 'auto-complete)
+(el-get-install 'ac-irony)
 
