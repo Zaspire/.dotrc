@@ -55,3 +55,5 @@
   (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async))
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(load "editorconfig")

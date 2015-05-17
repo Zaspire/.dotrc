@@ -12,4 +12,5 @@
 (el-get-install 'yasnippet)
 (el-get-install 'auto-complete)
 (el-get-install 'ac-irony)
+(el-get-install 'editorconfig)
 
