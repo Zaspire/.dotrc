@@ -3,7 +3,24 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(require 'el-get)
+(el-get 'sync)
+
 (load "~/Ubuntu One/emacs.el")
+
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-dark-laptop)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+
+(require 'rainbow-delimiters)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+
+(setq-default show-trailing-whitespace t)
+(global-hl-line-mode 1)
 
 (setq make-backup-files nil)
 (setq backup-inhibited t)
