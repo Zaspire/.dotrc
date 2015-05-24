@@ -82,3 +82,14 @@
 (require 'anything-exuberant-ctags)
 (global-set-key (kbd "C-z") 'anything)
 (global-set-key (kbd "C-x C-z") 'anything)
+
+; jump between (){}
+(global-set-key "%" 'match-paren)
+(defun match-paren (arg)
+  (interactive "p")
+  (message "%s" last-command)
+  (if (memq last-command '(self-insert-command))
+      (self-insert-command (or arg 1))
+  (cond ((looking-at "\(") (forward-list 1) (backward-char 1))
+        ((looking-at "\)") (forward-char 1) (backward-list 1))
+        (t (self-insert-command (or arg 1))))))
