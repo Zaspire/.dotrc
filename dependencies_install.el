@@ -13,6 +13,7 @@
 (el-get-install 'editorconfig)
 (el-get-install 'highlight-symbol)
 (el-get-install 'cmake-mode)
+(el-get-install 'anything)
 (el-get-install 'anything-exuberant-ctags)
 (el-get-install 'company-irony)
 (kill-emacs)

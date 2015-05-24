@@ -7,8 +7,6 @@
 (require 'el-get)
 (el-get 'sync)
 
-(load "~/Ubuntu One/emacs.el")
-
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-dark-laptop)
