@@ -51,9 +51,11 @@
 (load "editorconfig")
 
 (add-hook 'after-init-hook 'global-company-mode)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+(require 'company)
+(require 'company-irony)
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
+(add-to-list 'company-backends 'company-irony)
+(setq company-backends (delete 'company-clang company-backends))
 
 (add-hook 'c-mode-common-hook
   (lambda()
