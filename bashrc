@@ -14,13 +14,13 @@ if [ -e /etc/bash_completion ]; then
     source /etc/bash_completion
 fi
 
-GREP_OPTIONS='--color=auto'
+export GREP_OPTIONS='--color=auto'
 HISTSIZE=9000
 HISTCONTROL=ignoreboth
 # enable color support of ls
-CLICOLOR=1
-VISUAL=vim
-EDITOR="$VISUAL"
+export CLICOLOR=1
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 PS1="\[\033[0;32m\]\W\$\[\033[m\]"
