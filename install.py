@@ -14,8 +14,14 @@ def install_file(name, dest_dir = os.path.expanduser('~'), dot = True):
         os.unlink(dest)
     os.symlink(os.path.join(PARENT, name), dest)
 
+def install_go_deps(name):
+    os.system('go get -u ' + name)
+
 install_file('gitconfig')
 install_file('bash_profile')
 install_file('bashrc')
 install_file('emacs')
 install_file('ipython.py', os.path.expanduser('~/.ipython/profile_default/startup/'), False)
+
+install_go_deps('code.google.com/p/rog-go/exp/cmd/godef')
+install_go_deps('github.com/nsf/gocode')

@@ -71,6 +71,13 @@
 (add-hook 'irony-mode-hook 'my-irony-mode-hook)
 (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
+(add-to-list 'load-path "~/work/goroot/src/github.com/nsf/gocode/emacs-company/")
+(require 'company-go)
+(defun my-go-mode-hook ()
+  (set (make-local-variable 'company-backends) '(company-go))
+  (local-set-key (kbd "C-.") 'godef-jump))
+(add-hook 'go-mode-hook 'my-go-mode-hook)
+
 (require 'cmake-mode)
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)

@@ -22,5 +22,10 @@ export CLICOLOR=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+export GOPATH=~/work/goroot
+if [ -e $GOPATH/bin ]; then
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 PS1="\[\033[0;32m\]\W\$\[\033[m\]"
