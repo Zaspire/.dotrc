@@ -17,8 +17,11 @@ fi
 export GREP_OPTIONS='--color=auto'
 HISTSIZE=9000
 HISTCONTROL=ignoreboth
+
 # enable color support of ls
 export CLICOLOR=1
+ls --color=auto &> /dev/null && alias ls='ls --color=auto'
+
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
