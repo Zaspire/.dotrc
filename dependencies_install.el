@@ -17,5 +17,6 @@
 (el-get-install 'anything-exuberant-ctags)
 (el-get-install 'company-irony)
 (el-get-install 'go-mode)
+(el-get-install 'yaml-mode)
 (kill-emacs)
 
