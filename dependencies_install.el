@@ -18,5 +18,7 @@
 (el-get-install 'company-irony)
 (el-get-install 'go-mode)
 (el-get-install 'yaml-mode)
+(el-get-install 'jedi)
+(el-get-install 'company-jedi)
 (kill-emacs)
 

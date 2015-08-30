@@ -26,4 +26,7 @@ install_file('ipython.py', os.path.expanduser('~/.ipython/profile_default/startu
 install_go_deps('code.google.com/p/rog-go/exp/cmd/godef')
 install_go_deps('github.com/nsf/gocode')
 
-DEPENDENCIES = ['go', 'mercurial', 'emacs', 'editorconfig', 'cmake', 'autoconf', 'automake', 'pkg-config', 'git', 'gdb', 'node']
+DEPENDENCIES = ['go', 'mercurial', 'emacs', 'editorconfig', 'cmake', 'autoconf',
+                'automake', 'pkg-config', 'git', 'gdb', 'node', 'python']
+PIP_DEPENDENCIES = ['virtualenv']
+

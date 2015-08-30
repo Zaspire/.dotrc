@@ -78,6 +78,10 @@
   (local-set-key (kbd "C-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
+(defun my-python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
 (require 'cmake-mode)
 (setq auto-mode-alist
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
