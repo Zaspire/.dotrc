@@ -20,5 +20,6 @@
 (el-get-install 'yaml-mode)
 (el-get-install 'jedi)
 (el-get-install 'company-jedi)
+(el-get-install 'highlight-symbol)
 (kill-emacs)
 

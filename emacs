@@ -41,6 +41,9 @@
 (set-frame-parameter nil 'fullscreen 'fullboth)
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(require 'highlight-symbol)
+(global-set-key [(control h)] 'highlight-symbol)
+
 (require 'uniquify)
 (setq
   uniquify-buffer-name-style 'post-forward
