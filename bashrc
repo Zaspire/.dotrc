@@ -11,7 +11,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 if [ -e /etc/bash_completion ]; then
-    source /etc/bash_completion
+  source /etc/bash_completion
 fi
 
 export GREP_OPTIONS='--color=auto'
@@ -30,5 +30,12 @@ if [ -e $GOPATH/bin ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+backred="\e[41m"
+arrow=$'\xe2\x86\x92'
+
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-PS1="\[\033[0;32m\]\W\$\[\033[m\]"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  PS1="${backred}\W${arrow} \[\033[m\]"
+else
+  PS1='\[\033[0;32m\]\W${arrow} \[\033[m\]'
+fi
