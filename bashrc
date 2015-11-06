@@ -7,7 +7,10 @@ if [ `uname` = "Darwin" ]; then
 
 #FIXME
   export PATH=$PATH:~/bin/android-sdk/tools:~/bin/android-sdk/platform-tools
-
+  alias mclip=pbcopy
+fi
+if [ `uname` = "Linux" ]; then
+  alias mclip="xclip -selection c "
 fi
 
 if [ -e /etc/bash_completion ]; then
