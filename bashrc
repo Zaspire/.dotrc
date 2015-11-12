@@ -33,10 +33,14 @@ if [ -e $GOPATH/bin ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+# set Window title for UI terminal
+if [[ $TERMINFO != *"emacs"* ]]; then
+  PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+fi
+
 backred="\e[41m"
 arrow=$'\xe2\x86\x92'
 
-PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   PS1="${backred}\W${arrow} \[\033[m\]"
 else
