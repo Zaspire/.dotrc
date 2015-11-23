@@ -9,7 +9,8 @@
 
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-dark-laptop)
+(if (display-graphic-p)
+    (color-theme-dark-laptop))
 
 (require 'yasnippet)
 (yas-global-mode 1)
