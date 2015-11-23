@@ -25,8 +25,9 @@ HISTCONTROL=ignoreboth
 export CLICOLOR=1
 ls --color=auto &> /dev/null && alias ls='ls --color=auto'
 
-export VISUAL=vim
-export EDITOR="$VISUAL"
+export ALTERNATE_EDITOR=""
+export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI with non-daemon as alternate
+export EDITOR="emacsclient -t"                  # $EDITOR should open in terminal
 
 export GOPATH=~/work/goroot
 if [ -e $GOPATH/bin ]; then
