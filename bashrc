@@ -34,6 +34,8 @@ if [ -e $GOPATH/bin ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+export PYTHONSTARTUP=~/.dotrc/pythonrc.py
+
 # set Window title for UI terminal
 if [[ $TERMINFO != *"emacs"* ]]; then
   PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
