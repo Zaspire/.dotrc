@@ -6,7 +6,7 @@ if [ `uname` = "Darwin" ]; then
   export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 #FIXME
-  export PATH=$PATH:~/bin/android-sdk/tools:~/bin/android-sdk/platform-tools
+  export PATH=$PATH:~/bin:~/bin/android-sdk/tools:~/bin/android-sdk/platform-tools
   alias mclip=pbcopy
 fi
 if [ `uname` = "Linux" ]; then
