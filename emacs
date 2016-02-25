@@ -10,7 +10,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (if (display-graphic-p)
-    (color-theme-dark-laptop))
+    (load-theme 'atom-dark t))
 
 (require 'yasnippet)
 (yas-global-mode 1)

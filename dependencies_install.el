@@ -8,6 +8,7 @@
 (require 'el-get)
 (el-get-install 'irony-mode)
 (el-get-install 'color-theme)
+(el-get-install 'atom-dark-theme)
 (el-get-install 'rainbow-delimiters)
 (el-get-install 'yasnippet)
 (el-get-install 'editorconfig)
