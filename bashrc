@@ -49,3 +49,5 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 else
   PS1='\[\033[0;32m\]\W${arrow} \[\033[m\]'
 fi
+
+export LC_ALL='ru_RU.UTF-8'
