@@ -1,3 +1,5 @@
+(package-initialize)
+
 (setq stack-trace-on-error t)
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
@@ -50,41 +52,29 @@
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
-(load "editorconfig")
-
 (add-hook 'after-init-hook 'global-company-mode)
 (require 'company)
-(require 'company-irony)
-(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
-(add-to-list 'company-backends 'company-irony)
 (setq company-backends (delete 'company-clang company-backends))
+
+
+(setq-default ycmd-global-config (expand-file-name "~/.dotrc/global_conf.py"))
+(set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.dotrc/ycmd/ycmd")))
+(require 'ycmd)
+(add-hook 'after-init-hook #'global-ycmd-mode)
+(require 'company-ycmd)
+(company-ycmd-setup)
+(setq ycmd-force-semantic-completion t)
+
+(load "editorconfig")
+(editorconfig-mode 1)
+
+
+(global-set-key (kbd "C-x ?") 'company-complete)
+(global-set-key (kbd "C-x .") 'ycmd-goto-declaration)
 
 (add-hook 'c-mode-common-hook
   (lambda()
     (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-(defun my-irony-mode-hook ()
-  (yas-minor-mode 1)
-  (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
-  (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async)
-  (local-set-key (kbd "C-c ?") 'irony-completion-at-point-async))
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-(add-to-list 'load-path "~/work/goroot/src/github.com/nsf/gocode/emacs-company/")
-(require 'company-go)
-(defun my-go-mode-hook ()
-  (set (make-local-variable 'company-backends) '(company-go))
-  (local-set-key (kbd "C-.") 'godef-jump))
-(add-hook 'go-mode-hook 'my-go-mode-hook)
-
-(defun my-python-mode-hook ()
-  (add-to-list 'company-backends 'company-jedi))
-(add-hook 'python-mode-hook 'my-python-mode-hook)
 
 (require 'cmake-mode)
 (setq auto-mode-alist
@@ -92,9 +82,8 @@
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
 
-(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [(control f2)] 'highlight-symbol-at-point)
 (global-set-key [kp-subtract] 'undo)
-(require 'anything-exuberant-ctags)
 (global-set-key (kbd "C-z") 'anything)
 (global-set-key (kbd "C-x C-z") 'anything)
 
