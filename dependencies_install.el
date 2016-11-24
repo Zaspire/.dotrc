@@ -20,6 +20,7 @@
 (el-get-install 'dash)
 (el-get-install 'emacs-ycmd)
 (el-get-install 'highlight-symbol)
+(el-get-install 'multiple-cursors)
 
 (el-get-install 's)
 (el-get-install 'f)

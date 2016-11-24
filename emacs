@@ -99,3 +99,6 @@
 	  ((looking-at "\}") (forward-char 1) (backward-list 1))
 	  ((looking-at "\)") (forward-char 1) (backward-list 1))
 	  (t (self-insert-command (or arg 1))))))
+
+(require 'multiple-cursors)
+(global-set-key (kbd "M-S-<mouse-1>") 'mc/add-cursor-on-click)
