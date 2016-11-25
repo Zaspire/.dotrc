@@ -21,6 +21,7 @@
 (el-get-install 'emacs-ycmd)
 (el-get-install 'highlight-symbol)
 (el-get-install 'multiple-cursors)
+(el-get-install 'color-identifiers-mode)
 
 (el-get-install 's)
 (el-get-install 'f)

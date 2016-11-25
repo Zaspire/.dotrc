@@ -102,3 +102,6 @@
 
 (require 'multiple-cursors)
 (global-set-key (kbd "M-S-<mouse-1>") 'mc/add-cursor-on-click)
+
+(require 'color-identifiers-mode)
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
