@@ -105,3 +105,9 @@
 
 (require 'color-identifiers-mode)
 (add-hook 'after-init-hook 'global-color-identifiers-mode)
+
+(setq untabify-modes '(js-mode))
+(defun untabify-hook ()
+  (when (member major-mode untabify-modes)
+    (untabify (point-min) (point-max))))
+(add-hook 'before-save-hook 'untabify-hook)
