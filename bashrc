@@ -50,4 +50,4 @@ else
   PS1='\[\033[0;32m\]\W${arrow} \[\033[m\]'
 fi
 
-export LC_ALL='ru_RU.UTF-8'
+export LC_ALL='en_EN.UTF-8'
