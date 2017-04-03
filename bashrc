@@ -36,18 +36,37 @@ fi
 
 export PYTHONSTARTUP=~/.dotrc/pythonrc.py
 
-# set Window title for UI terminal
-if [[ $TERMINFO != *"emacs"* ]]; then
-  PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-fi
+# record execution time
+function timer_start {
+  timer=${timer:-$SECONDS}
+}
 
-backred="\e[41m"
-arrow=$'\xe2\x86\x92'
+function timer_stop {
+  execution_time="$(($SECONDS - $timer))"
+  unset timer
+}
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-  PS1="${backred}\W${arrow} \[\033[m\]"
-else
-  PS1='\[\033[0;32m\]\W${arrow} \[\033[m\]'
-fi
+trap 'timer_start' DEBUG
 
+function set_prompt() {
+  # set Window title for UI terminal
+  if [[ $TERMINFO != *"emacs"* ]]; then
+    echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
+  fi
+
+  timer_stop
+
+  backred='\e[41m'
+  txtgrn='\e[0;32m'
+  txtylw='\e[0;33m'
+  arrow=$'\xe2\x86\x92'
+
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    PS1="${txtylw}${execution_time}s ${backred}\W\n${arrow} \[\033[m\]"
+  else
+    PS1="${txtylw}${execution_time}s ${txtgrn}\W\n${arrow} \[\033[m\]"
+  fi
+}
+
+PROMPT_COMMAND='set_prompt'
 export LC_ALL='en_EN.UTF-8'
