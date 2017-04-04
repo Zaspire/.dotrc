@@ -69,4 +69,4 @@ function set_prompt() {
 }
 
 PROMPT_COMMAND='set_prompt'
-export LC_ALL='en_EN.UTF-8'
+export LC_ALL='en_US.UTF-8'
