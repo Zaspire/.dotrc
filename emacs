@@ -9,6 +9,9 @@
 (require 'el-get)
 (el-get 'sync)
 
+;; with emacs 25.2 gpg does not ask for password without it
+(setf epa-pinentry-mode 'loopback)
+
 (require 'color-theme)
 (color-theme-initialize)
 (if (display-graphic-p)
