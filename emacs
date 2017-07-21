@@ -114,3 +114,6 @@
   (when (member major-mode untabify-modes)
     (untabify (point-min) (point-max))))
 (add-hook 'before-save-hook 'untabify-hook)
+
+(require 'switch-window)
+(global-set-key (kbd "C-`") 'switch-window)
