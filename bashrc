@@ -18,6 +18,9 @@ if [ -e /etc/bash_completion ]; then
 fi
 
 export GREP_OPTIONS='--color=auto'
+alias grep="`which grep` --color=auto"
+unset GREP_OPTIONS
+
 HISTSIZE=9000
 HISTCONTROL=ignoreboth
 
@@ -26,8 +29,18 @@ export CLICOLOR=1
 ls --color=auto &> /dev/null && alias ls='ls --color=auto'
 
 export ALTERNATE_EDITOR=""
-export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI with non-daemon as alternate
-export EDITOR="emacsclient -t"                  # $EDITOR should open in terminal
+if [[ -z "$MYEMACSSERVERNAME" ]]; then
+  export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI with non-daemon as alternate
+  export EDITOR="emacsclient -t"                  # $EDITOR should open in terminal
+else
+  export VISUAL="emacsclient -a emacs -s $MYEMACSSERVERNAME"
+  export EDITOR="emacsclient -t -s $MYEMACSSERVERNAME"
+fi
+# fix ls colored output in emacs shell
+if [[ "$TERM" = "dumb" ]]; then
+    export TERM=ansi
+fi
+
 
 export GOPATH=~/work/goroot
 if [ -e $GOPATH/bin ]; then
@@ -50,7 +63,7 @@ trap 'timer_start' DEBUG
 
 function set_prompt() {
   # set Window title for UI terminal
-  if [[ $TERMINFO != *"emacs"* ]]; then
+  if [[ -z ${INSIDE_EMACS+x} ]]; then
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
   fi
 

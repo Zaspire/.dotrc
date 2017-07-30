@@ -90,6 +90,14 @@
 (global-set-key (kbd "C-z") 'anything)
 (global-set-key (kbd "C-x C-z") 'anything)
 
+(require 'uuid)
+(setq server-name (uuid-string))
+(setenv "MYEMACSSERVERNAME" server-name)
+(server-start)
+
+(require 'bash-completion)
+(bash-completion-setup)
+
 ; jump between (){}
 (global-set-key "%" 'match-paren)
 (defun match-paren (arg)

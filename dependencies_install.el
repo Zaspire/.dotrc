@@ -23,6 +23,8 @@
 (el-get-install 'multiple-cursors)
 (el-get-install 'color-identifiers-mode)
 (el-get-install 'switch-window)
+(el-get-install 'bash-completion)
+(el-get-install 'uuid)
 
 (el-get-install 's)
 (el-get-install 'f)
