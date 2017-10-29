@@ -1,4 +1,5 @@
 (package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
 (setq stack-trace-on-error t)
 
@@ -15,7 +16,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (if (display-graphic-p)
-    (load-theme 'atom-dark t))
+    (load-theme 'cyberpunk t))
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -61,7 +62,7 @@
 
 
 (setq-default ycmd-global-config (expand-file-name "~/.dotrc/global_conf.py"))
-(set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.dotrc/ycmd/ycmd")))
+(set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (require 'company-ycmd)
@@ -125,3 +126,15 @@
 
 (require 'switch-window)
 (global-set-key (kbd "C-`") 'switch-window)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (cyberpunk-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
