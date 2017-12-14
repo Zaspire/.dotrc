@@ -48,6 +48,12 @@
 (set-frame-parameter nil 'fullscreen 'fullboth)
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(setq-default tab-width 4)
+
+;; Python Hook
+(add-hook 'python-mode-hook '(lambda () 
+			       (setq python-indent 2)))
+
 (require 'highlight-symbol)
 (global-set-key [(control h)] 'highlight-symbol)
 
