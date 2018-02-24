@@ -51,7 +51,7 @@
 (setq-default tab-width 4)
 
 ;; Python Hook
-(add-hook 'python-mode-hook '(lambda () 
+(add-hook 'python-mode-hook '(lambda ()
 			       (setq python-indent 2)))
 
 (require 'highlight-symbol)
@@ -132,6 +132,10 @@
 
 (require 'switch-window)
 (global-set-key (kbd "C-`") 'switch-window)
+
+(shell)
+(delete-other-windows)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
