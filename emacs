@@ -67,6 +67,11 @@
 (setq company-backends (delete 'company-clang company-backends))
 
 
+(set-variable 'bazel-format-command (expand-file-name "~/work/goroot/bin/buildifier"))
+(require 'bazel-mode)
+(add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode))
+(add-hook 'bazel-mode-hook (lambda () (add-hook 'before-save-hook #'bazel-format nil t)))
+
 (setq-default ycmd-global-config (expand-file-name "~/.dotrc/global_conf.py"))
 (set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
 (require 'ycmd)
@@ -141,7 +146,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (cyberpunk-theme))))
+ '(package-selected-packages (quote (bazel-mode cyberpunk-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
