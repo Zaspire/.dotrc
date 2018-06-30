@@ -72,8 +72,9 @@
 (add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode))
 (add-hook 'bazel-mode-hook (lambda () (add-hook 'before-save-hook #'bazel-format nil t)))
 
+(setq ycmd--log-enabled t)
 (setq-default ycmd-global-config (expand-file-name "~/.dotrc/global_conf.py"))
-(set-variable 'ycmd-server-command (list "python" (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
+(set-variable 'ycmd-server-command (list (expand-file-name "~/.emacs.d/VE/bin/python2") (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (require 'company-ycmd)
@@ -140,6 +141,16 @@
 
 (shell)
 (delete-other-windows)
+
+(require 'google-this)  ;; C-c / g
+(google-this-mode 1)
+(require 'google-translate-default-ui)
+(global-set-key "\C-ct" 'google-translate-at-point)
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "ru")
+
+(require 'goto-last-change)
+(global-set-key "\C-x\C-\\" 'goto-last-change)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

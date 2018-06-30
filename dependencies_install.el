@@ -24,6 +24,9 @@
 (el-get-install 'switch-window)
 (el-get-install 'bash-completion)
 (el-get-install 'uuid)
+(el-get-install 'google-translate)
+(el-get-install 'google-this)
+(el-get-install 'goto-last-change)
 
 (el-get-install 's)
 (el-get-install 'f)
