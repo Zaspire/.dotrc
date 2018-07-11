@@ -17,6 +17,10 @@ if [ -e /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+alias bb="bazel build --config=opt "
+alias bt="bazel test --config=opt "
+alias br="bazel run --config=opt "
+
 export GREP_OPTIONS='--color=auto'
 alias grep="`which grep` --color=auto"
 unset GREP_OPTIONS
