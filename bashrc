@@ -21,6 +21,13 @@ alias bb="bazel build --config=opt "
 alias bt="bazel test --config=opt "
 alias br="bazel run --config=opt "
 
+_my_bazel_alias_autocompelete() {
+  _bazel__complete_target_stdout "build"
+}
+complete -F _my_bazel_alias_autocompelete -o nospace br
+complete -F _my_bazel_alias_autocompelete -o nospace bt
+complete -F _my_bazel_alias_autocompelete -o nospace bb
+
 export GREP_OPTIONS='--color=auto'
 alias grep="`which grep` --color=auto"
 unset GREP_OPTIONS
