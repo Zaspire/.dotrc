@@ -53,6 +53,8 @@
 ;; Python Hook
 (add-hook 'python-mode-hook '(lambda ()
 			       (setq python-indent 2)))
+;; env for run-python
+(setq python-shell-interpreter (expand-file-name "~/.emacs.d/VE/bin/python2"))
 
 (require 'highlight-symbol)
 (global-set-key [(control h)] 'highlight-symbol)
