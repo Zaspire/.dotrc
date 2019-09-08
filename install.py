@@ -34,7 +34,7 @@ def gsettings_get(path, key):
 def add_keybinding(n, name, command, binding):
   path = 'org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom%s/' % n
   gsettings_set(path, 'name', name)
-  gsettings_set(path, 'command', comman)
+  gsettings_set(path, 'command', command)
   gsettings_set(path, 'binding', binding)
 
 
@@ -47,7 +47,7 @@ install_file('ipython.py', os.path.expanduser('~/.ipython/profile_default/startu
 
 install_go_deps('github.com/bazelbuild/buildtools/buildifier')
 
-if sys.platform == 'linux2':
+if sys.platform == 'linux':
   add_keybinding(0, 'run emacs', 'emacs', 'Calculator')
 
   terminal_profile = gsettings_get('org.gnome.Terminal.ProfilesList', 'default')
@@ -55,6 +55,8 @@ if sys.platform == 'linux2':
     'org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:%s/' % terminal_profile,
     'use-theme-colors',
     'false')
+
+  gsettings_set('org.gnome.nautilus.preferences', 'click-policy', 'single')
 
 DEPENDENCIES = ['go', 'mercurial', 'emacs', 'editorconfig', 'cmake', 'autoconf',
                 'automake', 'pkg-config', 'git', 'gdb', 'node', 'python']
