@@ -57,7 +57,15 @@ if sys.platform == 'linux':
   gsettings_set(
     'org.gnome.settings-daemon.plugins.media-keys',
     'calculator', '<Primary>Calculator')
+  gsettings_set(
+    'org.gnome.settings-daemon.plugins.media-keys',
+    'calculator', '<Primary>Calculator')
   add_keybinding(0, 'run emacs', 'emacs', 'Calculator')
+
+  gsettings_set(
+    'org.gnome.desktop.wm.keybindings', 'switch-windows', "['<Alt>Tab']")
+  gsettings_set(
+    'org.gnome.desktop.wm.keybindings', 'switch-applications', "['<Super>Tab']")
 
   terminal_profile = gsettings_get('org.gnome.Terminal.ProfilesList', 'default')
   gsettings_set(
