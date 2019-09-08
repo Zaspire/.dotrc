@@ -37,6 +37,12 @@ def add_keybinding(n, name, command, binding):
   gsettings_set(path, 'command', command)
   gsettings_set(path, 'binding', binding)
 
+  # TODO: support multiple custom key bindings
+  gsettings_set('org.gnome.settings-daemon.plugins.media-keys',
+                'custom-keybindings',
+                "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']",
+  )
+
 
 install_file('gitconfig')
 install_file('bash_profile')
@@ -48,6 +54,9 @@ install_file('ipython.py', os.path.expanduser('~/.ipython/profile_default/startu
 install_go_deps('github.com/bazelbuild/buildtools/buildifier')
 
 if sys.platform == 'linux':
+  gsettings_set(
+    'org.gnome.settings-daemon.plugins.media-keys',
+    'calculator', '<Primary>Calculator')
   add_keybinding(0, 'run emacs', 'emacs', 'Calculator')
 
   terminal_profile = gsettings_get('org.gnome.Terminal.ProfilesList', 'default')
