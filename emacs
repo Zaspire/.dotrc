@@ -16,6 +16,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (if (display-graphic-p)
+    (load-theme 'cyberpunk t)
     (load-theme 'cyberpunk t))
 
 (require 'yasnippet)
