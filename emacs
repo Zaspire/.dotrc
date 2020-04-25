@@ -55,7 +55,7 @@
 (add-hook 'python-mode-hook '(lambda ()
 			       (setq python-indent 2)))
 ;; env for run-python
-(setq python-shell-interpreter (expand-file-name "~/.emacs.d/VE/bin/python2"))
+(setq python-shell-interpreter (expand-file-name "~/.emacs.d/VE3/bin/python3"))
 
 (require 'highlight-symbol)
 (global-set-key [(control h)] 'highlight-symbol)
@@ -77,7 +77,7 @@
 
 (setq ycmd--log-enabled t)
 (setq-default ycmd-global-config (expand-file-name "~/.dotrc/global_conf.py"))
-(set-variable 'ycmd-server-command (list (expand-file-name "~/.emacs.d/VE/bin/python2") (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
+(set-variable 'ycmd-server-command (list (expand-file-name "~/.emacs.d/VE3/bin/python3") (expand-file-name "~/.dotrc/ycmd/ycmd/__main__.py")))
 (require 'ycmd)
 (add-hook 'after-init-hook #'global-ycmd-mode)
 (require 'company-ycmd)

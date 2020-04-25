@@ -20,4 +20,6 @@ git submodule update --init --recursive
 cd ycmd
 PATH=/usr/bin:/bin:/usr/sbin:/usr/local/bin # should use python not from homebrew
 ./build.py --all
+
+python3 -m venv ~/.emacs.d/VE3
 ```
