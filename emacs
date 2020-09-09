@@ -142,6 +142,7 @@
 (require 'switch-window)
 (global-set-key (kbd "C-`") 'switch-window)
 
+(setq-default explicit-shell-file-name "/bin/bash")
 (shell)
 (delete-other-windows)
 
