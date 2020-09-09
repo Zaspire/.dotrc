@@ -21,6 +21,7 @@
 (if (display-graphic-p)
     (load-theme 'cyberpunk t)
     (load-theme 'cyberpunk t))
+(set-frame-font "Monospace 14")
 
 (require 'yasnippet)
 (yas-global-mode 1)
