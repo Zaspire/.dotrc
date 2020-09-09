@@ -32,8 +32,10 @@ export GREP_OPTIONS='--color=auto'
 alias grep="`which grep` --color=auto"
 unset GREP_OPTIONS
 
-HISTSIZE=9000
-HISTCONTROL=ignoreboth
+# unlimited filesize
+export HISTSIZE=
+export HISTFILESIZE=
+export HISTCONTROL=ignoreboth
 
 # enable color support of ls
 export CLICOLOR=1
