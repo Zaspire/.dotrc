@@ -13,6 +13,9 @@
 ;; with emacs 25.2 gpg does not ask for password without it
 (setf epa-pinentry-mode 'loopback)
 
+;; Disable overwrite mode.
+(global-unset-key (kbd "<insert>"))
+
 (require 'color-theme)
 (color-theme-initialize)
 (if (display-graphic-p)
