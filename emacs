@@ -21,7 +21,7 @@
 (if (display-graphic-p)
     (load-theme 'cyberpunk t)
     (load-theme 'cyberpunk t))
-(set-frame-font "Monospace 14")
+(set-frame-font "Monospace 12")
 
 (require 'yasnippet)
 (yas-global-mode 1)
@@ -147,7 +147,11 @@
 (global-set-key (kbd "C-`") 'switch-window)
 
 (setq-default explicit-shell-file-name "/bin/bash")
-(shell)
+(defun ushell ()
+  (interactive)
+  (call-interactively 'shell)
+  (rename-buffer (generate-new-buffer-name "*sh*")))
+(ushell)
 (delete-other-windows)
 
 (require 'google-this)  ;; C-c / g
@@ -159,16 +163,3 @@
 
 (require 'goto-last-change)
 (global-set-key "\C-x\C-\\" 'goto-last-change)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (bazel-mode cyberpunk-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
