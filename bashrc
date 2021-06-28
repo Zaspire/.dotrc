@@ -76,7 +76,7 @@ trap 'timer_start' DEBUG
 
 function set_prompt() {
   # set Window title for UI terminal
-  if [[ -z ${INSIDE_EMACS+x} ]]; then
+  if [[ -z ${INSIDE_EMACS} ]]; then
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
   fi
 
@@ -99,3 +99,8 @@ export LC_ALL='en_US.UTF-8'
 export TFHUB_CACHE_DIR=~/tmp/tfhub_modules/
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}:/usr/local/cuda/extras/CUPTI/lib64
+
+if [[ -n ${INSIDE_EMACS} ]]; then
+	# prioritize other tasks not started by shell.
+	renice -n 5 -p $$
+fi
