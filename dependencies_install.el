@@ -26,6 +26,7 @@
 (el-get-install 'uuid)
 (el-get-install 'google-translate)
 (el-get-install 'google-this)
+(el-get-install 'google-c-style)
 (el-get-install 'goto-last-change)
 
 (el-get-install 's)
